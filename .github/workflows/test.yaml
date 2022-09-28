@@ -1,0 +1,17 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  file-sharing:
+    name: Scan and Upload
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: create-file
+        run: |
+          echo "test" >> test.txt
+      - name: read-file
+        run: |
+          cat test.txt
