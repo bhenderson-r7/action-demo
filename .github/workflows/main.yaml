@@ -2,23 +2,23 @@ on:
   push:
     branches:
       - main
-
 jobs:
   mimics-scan:
     name: Scan and Upload
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
-      - name: Rename file
-        run: |
-          cp example.yml example2.yml
       - name: Run mimICS
-        uses: bhenderson-r7/action@main
-        id: mimics
+        uses: rapid7/insightcloudsec-actions@latest
         with:
-          targets: example2.yml
+          api_key: ${{ secrets.ics_api_key }}
+          base_url: ${{ secrets.ics_base_url }}
+          config_name: AWS-CIS-1.4.0
+          scan_name: Scan on Push
+          target: example.yml
+          driver: cft
       - name: Upload SARIF file
         if: always()
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: titan.sarif
+          sarif_file: scan_output.sarif
