@@ -9,16 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run mimICS
-        uses: rapid7/insightcloudsec-actions@latest
+        uses: docker://889956758113.dkr.ecr.us-east-1.amazonaws.com/bhenderson:mimics-dev 
         with:
-          api_key: ${{ secrets.ics_api_key }}
-          base_url: ${{ secrets.ics_base_url }}
-          config_name: AWS-CIS-1.4.0
-          scan_name: Scan on Push
-          target: example.yml
-          driver: cft
+          args: --api-key ${{ secrets.ics_api_key }} --base-url ${{ secrets.ics_base_url }} scan --ics-config AWS-CIS-1.4.0 --report-formats sarif ./
       - name: Upload SARIF file
         if: always()
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: scan_output.sarif
+          sarif_file: ics_scan.sarif
