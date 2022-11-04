@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: "A template so simple, with a key so locked down, it should never fail against our default Insights."
+
+Resources:
+  AppKey:
+    Type: "AWS::KMS::Key"
+    Properties:
+      Description: An example symmetric KMS key
+      EnableKeyRotation: true
+      KeyPolicy:
+        Version: 2012-10-17
+        Statement:
+          - Sid: Grant Key Access
+            Effect: Deny
+            Principal: "*"
+            Action: kms:*
+            Resource: "*"

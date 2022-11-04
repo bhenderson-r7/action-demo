@@ -1,0 +1,708 @@
+{
+  "format_version": "0.1",
+  "terraform_version": "0.15.5",
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "aws_sns_topic.closed_topic",
+          "mode": "managed",
+          "type": "aws_sns_topic",
+          "name": "closed_topic",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0,
+          "values": {
+            "application_failure_feedback_role_arn": null,
+            "application_success_feedback_role_arn": null,
+            "application_success_feedback_sample_rate": null,
+            "delivery_policy": null,
+            "display_name": null,
+            "http_failure_feedback_role_arn": null,
+            "http_success_feedback_role_arn": null,
+            "http_success_feedback_sample_rate": null,
+            "kms_master_key_id": null,
+            "lambda_failure_feedback_role_arn": null,
+            "lambda_success_feedback_role_arn": null,
+            "lambda_success_feedback_sample_rate": null,
+            "name": "my-topic-closed",
+            "name_prefix": null,
+            "sqs_failure_feedback_role_arn": null,
+            "sqs_success_feedback_role_arn": null,
+            "sqs_success_feedback_sample_rate": null,
+            "tags": null
+          }
+        },
+        {
+          "address": "aws_sns_topic.open_topic",
+          "mode": "managed",
+          "type": "aws_sns_topic",
+          "name": "open_topic",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0,
+          "values": {
+            "application_failure_feedback_role_arn": null,
+            "application_success_feedback_role_arn": null,
+            "application_success_feedback_sample_rate": null,
+            "delivery_policy": null,
+            "display_name": null,
+            "http_failure_feedback_role_arn": null,
+            "http_success_feedback_role_arn": null,
+            "http_success_feedback_sample_rate": null,
+            "kms_master_key_id": null,
+            "lambda_failure_feedback_role_arn": null,
+            "lambda_success_feedback_role_arn": null,
+            "lambda_success_feedback_sample_rate": null,
+            "name": "my-topic-open-to-world",
+            "name_prefix": null,
+            "sqs_failure_feedback_role_arn": null,
+            "sqs_success_feedback_role_arn": null,
+            "sqs_success_feedback_sample_rate": null,
+            "tags": null
+          }
+        },
+        {
+          "address": "aws_sns_topic_policy.closed_topic_policy",
+          "mode": "managed",
+          "type": "aws_sns_topic_policy",
+          "name": "closed_topic_policy",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0
+        },
+        {
+          "address": "aws_sns_topic_policy.open_topic_policy",
+          "mode": "managed",
+          "type": "aws_sns_topic_policy",
+          "name": "open_topic_policy",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0
+        },
+        {
+          "address": "data.aws_iam_policy_document.closed_sns_topic_policy",
+          "mode": "data",
+          "type": "aws_iam_policy_document",
+          "name": "closed_sns_topic_policy",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0,
+          "values": {
+            "override_json": null,
+            "policy_id": "__default_policy_ID",
+            "source_json": null,
+            "statement": [
+              {
+                "actions": [
+                  "SNS:AddPermission",
+                  "SNS:DeleteTopic",
+                  "SNS:GetTopicAttributes",
+                  "SNS:ListSubscriptionsByTopic",
+                  "SNS:Publish",
+                  "SNS:Receive",
+                  "SNS:RemovePermission",
+                  "SNS:SetTopicAttributes",
+                  "SNS:Subscribe"
+                ],
+                "condition": [],
+                "effect": "Allow",
+                "not_actions": null,
+                "not_principals": [],
+                "not_resources": null,
+                "principals": [
+                  {
+                    "identifiers": [
+                      "999999998",
+                      "999999999"
+                    ],
+                    "type": "AWS"
+                  }
+                ],
+                "resources": [],
+                "sid": "__default_statement_ID"
+              }
+            ],
+            "version": null
+          }
+        },
+        {
+          "address": "data.aws_iam_policy_document.open_sns_topic_policy",
+          "mode": "data",
+          "type": "aws_iam_policy_document",
+          "name": "open_sns_topic_policy",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0,
+          "values": {
+            "override_json": null,
+            "policy_id": "__default_policy_ID",
+            "source_json": null,
+            "statement": [
+              {
+                "actions": [
+                  "SNS:AddPermission",
+                  "SNS:DeleteTopic",
+                  "SNS:GetTopicAttributes",
+                  "SNS:ListSubscriptionsByTopic",
+                  "SNS:Publish",
+                  "SNS:Receive",
+                  "SNS:RemovePermission",
+                  "SNS:SetTopicAttributes",
+                  "SNS:Subscribe"
+                ],
+                "condition": [],
+                "effect": "Allow",
+                "not_actions": null,
+                "not_principals": [],
+                "not_resources": null,
+                "principals": [
+                  {
+                    "identifiers": [
+                      "*"
+                    ],
+                    "type": "AWS"
+                  }
+                ],
+                "resources": [],
+                "sid": "__default_statement_ID"
+              }
+            ],
+            "version": null
+          }
+        }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "aws_sns_topic.closed_topic",
+      "mode": "managed",
+      "type": "aws_sns_topic",
+      "name": "closed_topic",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "application_failure_feedback_role_arn": null,
+          "application_success_feedback_role_arn": null,
+          "application_success_feedback_sample_rate": null,
+          "delivery_policy": null,
+          "display_name": null,
+          "http_failure_feedback_role_arn": null,
+          "http_success_feedback_role_arn": null,
+          "http_success_feedback_sample_rate": null,
+          "kms_master_key_id": null,
+          "lambda_failure_feedback_role_arn": null,
+          "lambda_success_feedback_role_arn": null,
+          "lambda_success_feedback_sample_rate": null,
+          "name": "my-topic-closed",
+          "name_prefix": null,
+          "sqs_failure_feedback_role_arn": null,
+          "sqs_success_feedback_role_arn": null,
+          "sqs_success_feedback_sample_rate": null,
+          "tags": null
+        },
+        "after_unknown": {
+          "arn": true,
+          "id": true,
+          "policy": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "aws_sns_topic.open_topic",
+      "mode": "managed",
+      "type": "aws_sns_topic",
+      "name": "open_topic",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "application_failure_feedback_role_arn": null,
+          "application_success_feedback_role_arn": null,
+          "application_success_feedback_sample_rate": null,
+          "delivery_policy": null,
+          "display_name": null,
+          "http_failure_feedback_role_arn": null,
+          "http_success_feedback_role_arn": null,
+          "http_success_feedback_sample_rate": null,
+          "kms_master_key_id": null,
+          "lambda_failure_feedback_role_arn": null,
+          "lambda_success_feedback_role_arn": null,
+          "lambda_success_feedback_sample_rate": null,
+          "name": "my-topic-open-to-world",
+          "name_prefix": null,
+          "sqs_failure_feedback_role_arn": null,
+          "sqs_success_feedback_role_arn": null,
+          "sqs_success_feedback_sample_rate": null,
+          "tags": null
+        },
+        "after_unknown": {
+          "arn": true,
+          "id": true,
+          "policy": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "aws_sns_topic_policy.closed_topic_policy",
+      "mode": "managed",
+      "type": "aws_sns_topic_policy",
+      "name": "closed_topic_policy",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {},
+        "after_unknown": {
+          "arn": true,
+          "id": true,
+          "policy": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "aws_sns_topic_policy.open_topic_policy",
+      "mode": "managed",
+      "type": "aws_sns_topic_policy",
+      "name": "open_topic_policy",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {},
+        "after_unknown": {
+          "arn": true,
+          "id": true,
+          "policy": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "data.aws_iam_policy_document.closed_sns_topic_policy",
+      "mode": "data",
+      "type": "aws_iam_policy_document",
+      "name": "closed_sns_topic_policy",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": [
+          "read"
+        ],
+        "before": null,
+        "after": {
+          "override_json": null,
+          "policy_id": "__default_policy_ID",
+          "source_json": null,
+          "statement": [
+            {
+              "actions": [
+                "SNS:AddPermission",
+                "SNS:DeleteTopic",
+                "SNS:GetTopicAttributes",
+                "SNS:ListSubscriptionsByTopic",
+                "SNS:Publish",
+                "SNS:Receive",
+                "SNS:RemovePermission",
+                "SNS:SetTopicAttributes",
+                "SNS:Subscribe"
+              ],
+              "condition": [],
+              "effect": "Allow",
+              "not_actions": null,
+              "not_principals": [],
+              "not_resources": null,
+              "principals": [
+                {
+                  "identifiers": [
+                    "999999998",
+                    "999999999"
+                  ],
+                  "type": "AWS"
+                }
+              ],
+              "resources": [],
+              "sid": "__default_statement_ID"
+            }
+          ],
+          "version": null
+        },
+        "after_unknown": {
+          "id": true,
+          "json": true,
+          "statement": [
+            {
+              "actions": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "condition": [],
+              "not_principals": [],
+              "principals": [
+                {
+                  "identifiers": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "resources": [
+                true
+              ]
+            }
+          ]
+        },
+        "before_sensitive": false,
+        "after_sensitive": {
+          "statement": [
+            {
+              "actions": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "condition": [],
+              "not_principals": [],
+              "principals": [
+                {
+                  "identifiers": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "resources": [
+                false
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "address": "data.aws_iam_policy_document.open_sns_topic_policy",
+      "mode": "data",
+      "type": "aws_iam_policy_document",
+      "name": "open_sns_topic_policy",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": [
+          "read"
+        ],
+        "before": null,
+        "after": {
+          "override_json": null,
+          "policy_id": "__default_policy_ID",
+          "source_json": null,
+          "statement": [
+            {
+              "actions": [
+                "SNS:AddPermission",
+                "SNS:DeleteTopic",
+                "SNS:GetTopicAttributes",
+                "SNS:ListSubscriptionsByTopic",
+                "SNS:Publish",
+                "SNS:Receive",
+                "SNS:RemovePermission",
+                "SNS:SetTopicAttributes",
+                "SNS:Subscribe"
+              ],
+              "condition": [],
+              "effect": "Allow",
+              "not_actions": null,
+              "not_principals": [],
+              "not_resources": null,
+              "principals": [
+                {
+                  "identifiers": [
+                    "*"
+                  ],
+                  "type": "AWS"
+                }
+              ],
+              "resources": [],
+              "sid": "__default_statement_ID"
+            }
+          ],
+          "version": null
+        },
+        "after_unknown": {
+          "id": true,
+          "json": true,
+          "statement": [
+            {
+              "actions": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "condition": [],
+              "not_principals": [],
+              "principals": [
+                {
+                  "identifiers": [
+                    false
+                  ]
+                }
+              ],
+              "resources": [
+                true
+              ]
+            }
+          ]
+        },
+        "before_sensitive": false,
+        "after_sensitive": {
+          "statement": [
+            {
+              "actions": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "condition": [],
+              "not_principals": [],
+              "principals": [
+                {
+                  "identifiers": [
+                    false
+                  ]
+                }
+              ],
+              "resources": [
+                false
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration": {
+    "provider_config": {
+      "aws": {
+        "name": "aws",
+        "version_constraint": "2.37.0",
+        "expressions": {
+          "region": {
+            "constant_value": "us-east-2"
+          }
+        }
+      }
+    },
+    "root_module": {
+      "resources": [
+        {
+          "address": "aws_sns_topic.closed_topic",
+          "mode": "managed",
+          "type": "aws_sns_topic",
+          "name": "closed_topic",
+          "provider_config_key": "aws",
+          "expressions": {
+            "name": {
+              "constant_value": "my-topic-closed"
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "aws_sns_topic.open_topic",
+          "mode": "managed",
+          "type": "aws_sns_topic",
+          "name": "open_topic",
+          "provider_config_key": "aws",
+          "expressions": {
+            "name": {
+              "constant_value": "my-topic-open-to-world"
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "aws_sns_topic_policy.closed_topic_policy",
+          "mode": "managed",
+          "type": "aws_sns_topic_policy",
+          "name": "closed_topic_policy",
+          "provider_config_key": "aws",
+          "expressions": {
+            "arn": {
+              "references": [
+                "aws_sns_topic.closed_topic"
+              ]
+            },
+            "policy": {
+              "references": [
+                "data.aws_iam_policy_document.closed_sns_topic_policy"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "aws_sns_topic_policy.open_topic_policy",
+          "mode": "managed",
+          "type": "aws_sns_topic_policy",
+          "name": "open_topic_policy",
+          "provider_config_key": "aws",
+          "expressions": {
+            "arn": {
+              "references": [
+                "aws_sns_topic.open_topic"
+              ]
+            },
+            "policy": {
+              "references": [
+                "data.aws_iam_policy_document.open_sns_topic_policy"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "data.aws_iam_policy_document.closed_sns_topic_policy",
+          "mode": "data",
+          "type": "aws_iam_policy_document",
+          "name": "closed_sns_topic_policy",
+          "provider_config_key": "aws",
+          "expressions": {
+            "policy_id": {
+              "constant_value": "__default_policy_ID"
+            },
+            "statement": [
+              {
+                "actions": {
+                  "constant_value": [
+                    "SNS:Subscribe",
+                    "SNS:SetTopicAttributes",
+                    "SNS:RemovePermission",
+                    "SNS:Receive",
+                    "SNS:Publish",
+                    "SNS:ListSubscriptionsByTopic",
+                    "SNS:GetTopicAttributes",
+                    "SNS:DeleteTopic",
+                    "SNS:AddPermission"
+                  ]
+                },
+                "effect": {
+                  "constant_value": "Allow"
+                },
+                "principals": [
+                  {
+                    "identifiers": {
+                      "constant_value": [
+                        "999999999",
+                        "999999998"
+                      ]
+                    },
+                    "type": {
+                      "constant_value": "AWS"
+                    }
+                  }
+                ],
+                "resources": {
+                  "references": [
+                    "aws_sns_topic.closed_topic"
+                  ]
+                },
+                "sid": {
+                  "constant_value": "__default_statement_ID"
+                }
+              }
+            ]
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "data.aws_iam_policy_document.open_sns_topic_policy",
+          "mode": "data",
+          "type": "aws_iam_policy_document",
+          "name": "open_sns_topic_policy",
+          "provider_config_key": "aws",
+          "expressions": {
+            "policy_id": {
+              "constant_value": "__default_policy_ID"
+            },
+            "statement": [
+              {
+                "actions": {
+                  "constant_value": [
+                    "SNS:Subscribe",
+                    "SNS:SetTopicAttributes",
+                    "SNS:RemovePermission",
+                    "SNS:Receive",
+                    "SNS:Publish",
+                    "SNS:ListSubscriptionsByTopic",
+                    "SNS:GetTopicAttributes",
+                    "SNS:DeleteTopic",
+                    "SNS:AddPermission"
+                  ]
+                },
+                "effect": {
+                  "constant_value": "Allow"
+                },
+                "principals": [
+                  {
+                    "identifiers": {
+                      "constant_value": [
+                        "*"
+                      ]
+                    },
+                    "type": {
+                      "constant_value": "AWS"
+                    }
+                  }
+                ],
+                "resources": {
+                  "references": [
+                    "aws_sns_topic.open_topic"
+                  ]
+                },
+                "sid": {
+                  "constant_value": "__default_statement_ID"
+                }
+              }
+            ]
+          },
+          "schema_version": 0
+        }
+      ]
+    }
+  }
+}
