@@ -2,17 +2,20 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 jobs:
-  mimics-scan:
-    name: Scan and Upload
+  mimics-scan-and-upload:
+    name: mimics scan and upload sarif
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
-      - name: Run mimICS
+      - name: run mimICS scan
         uses: docker://889956758113.dkr.ecr.us-east-1.amazonaws.com/bhenderson:mimics-dev 
         with:
           args: --api-key ${{ secrets.ics_api_key }} --base-url ${{ secrets.ics_base_url }} scan --ics-config AWS-CIS-1.4.0 --report-formats sarif ./
-      - name: Upload SARIF file
+      - name: upload SARIF file to GitHub
         if: always()
         uses: github/codeql-action/upload-sarif@v2
         with:
