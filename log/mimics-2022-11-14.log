@@ -1,0 +1,27 @@
+2022-11-14T11:28:06-05:00 INF mimICS 0.0.0-SNAPSHOT-45d197d, build 45d197d
+2022-11-14T11:28:06-05:00 INF Running scan
+2022-11-14T11:28:06-05:00 ERR Unable to determine which parser to use for file ./README.md error="failed to determine driver"
+2022-11-14T11:28:06-05:00 INF Parsing CFT
+2022-11-14T11:28:06-05:00 INF Parsing CFT
+2022-11-14T11:28:06-05:00 INF Starting local scan for examples/cloudformation/perfect.yml
+2022-11-14T11:28:06-05:00 INF Analyzing "examples/cloudformation/perfect.yml"
+2022-11-14T11:28:06-05:00 INF Starting local scan for examples/cloudformation/demo_fail.yaml
+2022-11-14T11:28:06-05:00 INF Analyzing "examples/cloudformation/demo_fail.yaml"
+2022-11-14T11:28:06-05:00 INF Rego analysis complete
+2022-11-14T11:28:06-05:00 INF Rego analysis complete
+2022-11-14T11:28:06-05:00 INF scan complete
+2022-11-14T11:28:06-05:00 INF Scan failed on one or more insights
+2022-11-14T12:53:12-05:00 INF mimICS 0.0.0-SNAPSHOT-45d197d, build 45d197d
+2022-11-14T12:53:12-05:00 INF Running scan
+2022-11-14T12:53:13-05:00 ERR Unable to determine which parser to use for file ./README.md error="failed to determine driver"
+2022-11-14T12:53:13-05:00 ERR Unable to determine which parser to use for file log/mimics-2022-11-14.log error="template log/mimics-2022-11-14.log could not be loaded"
+2022-11-14T12:53:13-05:00 INF Parsing CFT
+2022-11-14T12:53:13-05:00 INF Parsing CFT
+2022-11-14T12:53:13-05:00 INF Starting local scan for examples/cloudformation/perfect.yml
+2022-11-14T12:53:13-05:00 INF Analyzing "examples/cloudformation/perfect.yml"
+2022-11-14T12:53:13-05:00 INF Starting local scan for examples/cloudformation/demo_fail.yaml
+2022-11-14T12:53:13-05:00 INF Analyzing "examples/cloudformation/demo_fail.yaml"
+2022-11-14T12:53:13-05:00 INF Rego analysis complete
+2022-11-14T12:53:13-05:00 INF Rego analysis complete
+2022-11-14T12:53:13-05:00 INF scan complete
+2022-11-14T12:53:13-05:00 INF Scan failed on one or more insights
