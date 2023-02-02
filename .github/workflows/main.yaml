@@ -16,6 +16,7 @@ jobs:
           api_key: ${{ secrets.ics_api_key }}
           base_url: ${{ secrets.ics_base_url }}
           config_name: cis
+          target: templates/
       - name: Upload SARIF file
         if: always()
         uses: github/codeql-action/upload-sarif@v2
