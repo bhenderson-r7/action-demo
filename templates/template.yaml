@@ -1,0 +1,54 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      AccessControl: Private
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              KMSMasterKeyID: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+              SSEAlgorithm: aws:kms
+      VersioningConfiguration:
+        Status: Enabled
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: True
+        BlockPublicPolicy: True
+        IgnorePublicAcls: True
+        RestrictPublicBuckets: True
+      LoggingConfiguration:
+        DestinationBucketName: Some-Existing-Bucket
+        LogFilePrefix: S3BucketAccessLogs
+
+  S3BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref S3Bucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Action:
+              - s3:*
+            Effect: Deny
+            Resource:
+              - !GetAtt S3Bucket.Arn
+              - !Sub "${S3Bucket.Arn}/*"
+            Principal: "*"
+            Condition:
+              Bool:
+                "aws:SecureTransport": false
+          - Action:
+              - s3:PutObject
+            Effect: Deny
+            Resource:
+              - !Sub "${S3Bucket.Arn}/*"
+            Principal: "*"
+            Condition:
+              "Null":
+                "s3:x-amz-server-side-encryption": true
+
+  FailS3Bucket:
+    Type: AWS::S3::Bucket
+    Properties: {}

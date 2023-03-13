@@ -12,10 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: run mimICS scan
-        uses: docker://889956758113.dkr.ecr.us-east-1.amazonaws.com/bhenderson:mimics-dev 
+        uses: docker://889956758113.dkr.ecr.us-east-1.amazonaws.com/bhenderson:mimics-dev-2
         with:
-          args: --api-key ${{ secrets.ics_api_key }} --base-url ${{ secrets.ics_base_url }} scan --ics-config AWS-CIS-1.4.0 --report-formats sarif ./
-      - name: upload SARIF file to GitHub
+          args: --api-key ${{ secrets.ics_api_key }} --base-url ${{ secrets.ics_base_url }} scan --ics-config DemoF --report-formats sarif ./templates
+      - name: Upload SARIF file
         if: always()
         uses: github/codeql-action/upload-sarif@v2
         with:
