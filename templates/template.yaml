@@ -48,7 +48,3 @@ Resources:
             Condition:
               "Null":
                 "s3:x-amz-server-side-encryption": true
-
-  FailS3Bucket:
-    Type: AWS::S3::Bucket
-    Properties: {}
